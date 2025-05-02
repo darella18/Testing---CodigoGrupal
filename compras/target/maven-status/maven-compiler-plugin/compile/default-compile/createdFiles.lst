@@ -1,0 +1,6 @@
+com\sinfloo\modelo\Producto.class
+com\sinfloo\config\Conexion.class
+com\sinfloo\controlador\ControladorIMG.class
+com\sinfloo\controlador\Controlador.class
+com\sinfloo\modelo\ProductoDAO.class
+prueba.class
