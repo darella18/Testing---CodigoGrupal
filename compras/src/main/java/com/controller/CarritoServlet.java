@@ -5,7 +5,7 @@ public class CarritoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         try {
-            // Lógica principal para gestionar el carrito
+            // gestionar el carrito
         } catch (Exception e) {
             String mensaje = ErrorUtil.getUserFriendlyMessage("INVALID_INPUT");
             request.setAttribute("errorMessage", mensaje);
