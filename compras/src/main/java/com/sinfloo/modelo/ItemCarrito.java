@@ -1,4 +1,4 @@
-package modelo;
+package com.sinfloo.modelo;
 
 public class ItemCarrito {
     private Producto producto;

@@ -50,7 +50,7 @@ public class Conexion {
     public Connection getConnection() {
         try {
             String myBD = "jdbc:mysql://localhost:3306/bdcompras";
-            con = DriverManager.getConnection(myBD, "root", "");
+            con = DriverManager.getConnection(myBD, "root", "root");
             if (con != null) {
                 System.out.println("Conexión exitosa a la base de datos.");
             }

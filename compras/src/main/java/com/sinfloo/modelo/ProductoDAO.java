@@ -35,15 +35,15 @@ public class ProductoDAO {
             while (rs.next()){
                 Producto p = new Producto();
                 p.setId(rs.getInt(1));
-                p.setNombre(rs.getNString(2));
+                p.setNombre(rs.getString(2)); // Corregir getNString a getString
                 p.setFoto(rs.getBinaryStream(3));
                 p.setDescripcion(rs.getString(4));
                 p.setPrecio(rs.getDouble(5));
                 p.setStock(rs.getInt(6));
                 productos.add(p);
-                
             }
         } catch (Exception e) {
+            e.printStackTrace(); // Agregar manejo de excepciones
         }
         return productos;
     }
@@ -70,6 +70,7 @@ public class ProductoDAO {
                 bufferedOutputStream.write(i);
             }
         } catch (Exception e) {
+            e.printStackTrace(); // Agregar manejo de excepciones
         }
     }
 }

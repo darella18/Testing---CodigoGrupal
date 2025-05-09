@@ -36,8 +36,12 @@ public class Controlador extends HttpServlet {
         String accion = request.getParameter("accion");
         productos = pdao.listar();
         switch (accion) {
-            case "ejemplo":
-                
+            case "home":
+                request.setAttribute("productos", productos);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+                break;
+            case "carrito":
+                request.getRequestDispatcher("carrito.jsp").forward(request, response);
                 break;
             default:
                 request.setAttribute("productos", productos);
