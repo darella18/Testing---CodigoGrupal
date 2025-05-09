@@ -1,0 +1,21 @@
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="6.0" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+<servlet>
+<servlet-name>Controlador</servlet-name>
+<servlet-class>controlador.Controlador</servlet-class>
+</servlet>
+<servlet>
+<servlet-name>ControladorIMG</servlet-name>
+<servlet-class>controlador.ControladorIMG</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>Controlador</servlet-name>
+<url-pattern>/Controlador</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>ControladorIMG</servlet-name>
+<url-pattern>/ControladorIMG</url-pattern>
+</servlet-mapping>
+<session-config>
+<session-timeout> 30 </session-timeout>
+</session-config>
+</web-app>
