@@ -1,12 +1,13 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Error</title>
-    </head>
-    <body>
-        <h1>Ha ocurrido un error</h1>
-        <p>${errorMessage}</p>
-    </body>
+<head>
+    <title>Error</title>
+</head>
+<body>
+    <h2>¡Ups! Ha ocurrido un problema.</h2>
+    <p style="color:red;">
+        <%= request.getAttribute("errorMessage") %>
+    </p>
+    <a href="index.jsp">Volver al inicio</a>
+</body>
 </html>

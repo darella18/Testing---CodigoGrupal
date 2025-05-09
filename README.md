@@ -13,9 +13,10 @@
 ## Ejecución
 ### Desde la línea de comandos
 1. Abre una terminal en el directorio del proyecto:
-   ```bash
    cd ...\Testing---CodigoGrupal\compras
-   ```
+   NO DESDE:
+   cd ...\Testing---CodigoGrupal
+
 2. Compila el proyecto:
    mvn clean compile
 
