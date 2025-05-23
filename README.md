@@ -1,31 +1,111 @@
-# Testing---CodigoGrupal
+# Tienda Virtual - Proyecto Java JSP/Servlets
 
 ## Requisitos
-- JDK 11 o superior
-- Apache Maven
-- MySQL
 
-## Configuración
-1. Configura la base de datos `bdcompras` en MySQL.
-   - Usa el script SQL proporcionado para crear la base de datos y las tablas necesarias.
-2. Actualiza las credenciales en `Conexion.java` si es necesario.
+- Java JDK 17 o superior
+- Apache Tomcat 11 (Windows Service Installer)
+- MySQL Server
+- Maven
+- Visual Studio Code (VS Code) *(opcional, pero recomendado)*
 
-## Ejecución
-### Desde la línea de comandos
-1. Abre una terminal en el directorio del proyecto:
-   cd ...\Testing---CodigoGrupal\compras
-   NO DESDE:
-   cd ...\Testing---CodigoGrupal
+---
 
-2. Compila el proyecto:
-   mvn clean compile
+## 1. Clonar el repositorio
 
-3. Ejecuta la clase `MainApp`:
-   mvn exec:java
+git clone https://github.com/darella18/Testing---CodigoGrupal.git
+cd Testing---CodigoGrupal
 
-### Desde un servidor
-1. Ejecuta:
-   mvn clean install
-   
-2. Despliega el archivo WAR generado en un servidor compatible con Jakarta EE 10 (GlassFish, Payara, etc.).
-3. Accede a `http://localhost:8080/compras`.
+---
+
+## 2. Instalar y configurar Apache Tomcat 11
+
+### **Descargar e instalar Tomcat 11:**
+- Ve a [https://tomcat.apache.org/download-11.cgi](https://tomcat.apache.org/download-11.cgi)
+- Descarga el **Windows Service Installer** y sigue el asistente de instalación.
+- Por defecto, Tomcat se instalará en:  
+  `C:\Program Files\Apache Software Foundation\Tomcat 11.0\`
+
+### **Iniciar Tomcat desde la terminal:**
+- Abre **PowerShell** desde la terminal de VSCode.
+- Ve a la carpeta `bin` de Tomcat, normalmente:
+
+cd "C:\Program Files\Apache Software Foundation\Tomcat 11.0\bin"
+
+- Inicia Tomcat con:
+
+cmd /c catalina.bat run
+
+*(Puedes detener Tomcat con ctrl+C)*
+
+---
+
+## 3. Configurar la base de datos
+
+### **Crear la base de datos y tablas:**
+
+1. Abre MySQL Workbench, DBeaver, o usa la terminal.
+2. Ejecuta el script SQL que está en `database/bdcompras.sql`:
+
+mysql -u root -p < database/bdcompras.sql
+
+3. Verifica que la base de datos `bdcompras` y las tablas se hayan creado correctamente.
+
+---
+
+## 4. Configurar la conexión a la base de datos
+
+- Abre el archivo `Conexion.java` en tu proyecto.
+- Coloca tus credenciales de MySQL:
+
+// Ejemplo de configuración
+private final String url = "jdbc:mysql://localhost:3306/bdcompras";
+private final String user = "root";
+private final String pass = "TU_CONTRASEÑA";
+
+---
+
+## 5. Compilar y generar el archivo WAR
+
+Desde la terminal de VS Code o cmd, en la raíz del proyecto:
+
+mvn clean package
+
+Esto generará el archivo `compras.war` en la carpeta `target/`.
+
+---
+
+## 6. Desplegar el WAR en Tomcat
+
+- Copia el archivo `target/compras.war` a la carpeta:
+
+C:\Program Files\Apache Software Foundation\Tomcat 11.0\webapps
+
+- Si Tomcat está corriendo, el WAR se desplegará automáticamente.  
+  Si no, inicia Tomcat como se explicó antes.
+
+---
+
+## 7. Acceder a la aplicación
+
+Abre tu navegador y ve a:
+
+```
+http://localhost:8080/compras
+```
+
+---
+
+## 8. Notas adicionales
+
+- Si cambias el puerto de Tomcat, usa ese puerto en la URL.
+- Si tienes problemas de tildes o caracteres raros, asegúrate de que **todos los archivos estén guardados como UTF-8**.
+- Para detener Tomcat, puedes cerrar la ventana de la terminal o detener el servicio desde el monitor de servicios de Windows.
+
+---
+
+## 9. Usuarios y pruebas
+
+- Regístrate como nuevo usuario desde la app.
+- Agrega productos al carrito, prueba la compra y verifica el stock.
+
+---
